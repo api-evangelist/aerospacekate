@@ -1,17 +1,34 @@
 aid: aerospacekate
-name: Aerospacekate
-description: 'Aerospacekate is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+name: Aerospace Kate
+description: >-
+  Aerospace Kate (航天凯特) is the trading name of Chengdu Aerospace Kate Mechanical & Electrical
+  Technology Co., Ltd. (成都航天凯特机电科技有限公司), a Chinese high-precision servo drive
+  manufacturer founded in 2017 in Pidu District, Chengdu, Sichuan. A national high-tech and
+  state-designated "little giant" specialized-and-innovative enterprise with roughly 200 staff
+  (over half in R&D) and 210+ registered IP rights, it builds fully domestically-sourced servo
+  drivers spanning 15V to 800V (KTSD, 蜀芯, 蓉驭 and 锦驱 series), KTMT hollow-cup motors,
+  underwater thrusters and electric actuators, phased-array antenna steering gear, and the 灵捷
+  (Lingjie) line of robot joint modules, collaborative arms, quadruped robots and humanoid
+  platforms. A second line covers optoelectronic detection — panoramic detectors, maritime
+  search lights and airport runway FOD detection. The product is physical hardware; Aerospace
+  Kate publishes no API, SDK, developer portal or machine-readable contract of any kind.
 url: https://raw.githubusercontent.com/api-evangelist/aerospacekate/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-09-12'
 modified: '2026-09-12'
 tags:
 - Company
+- Manufacturing
+- Robotics
+- Industrial Automation
+- Motion Control
+- Aerospace
+- Defense
+- Hardware
+- China
+- No Developer Program
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +36,40 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/aerospacekate-domain-security.yml
+- type: LLMsTxt
+  url: llms/aerospacekate-llms.txt
 - type: Website
-  url: https://equityzen.com/company/aerospacekate
+  url: http://www.htktjd.com/
+- type: Support
+  url: http://www.htktjd.com/contact.html
+- type: Blog
+  url: http://www.htktjd.com/news/1.html
+x-enrichment:
+  date: '2026-09-12'
+  status: minimal
+  artifacts_added: 3
+  pass: local-v3
+x-coverage:
+  state: none
+  reason: not-a-software-company
+  detail: >-
+    Aerospace Kate is a Chengdu hardware manufacturer of servo drivers, hollow-cup motors,
+    robot joint modules and optoelectronic detection units — its 261-URL Simplified-Chinese
+    marketing site has no developer section at all (nav is About / Core Technology / Products /
+    News / Careers / Contact, and the only "api" strings in the HTML are the 300.cn CMS's own
+    internal /fwebapi/ low-code datasource calls), and api./docs./developer./open.htktjd.com
+    do not resolve.
+  evidence:
+    - url: http://www.htktjd.com/
+      status: 200
+    - url: http://www.htktjd.com/llms.txt
+      status: 404
+    - url: http://www.htktjd.com/openapi.json
+      status: 403
+    - url: http://www.htktjd.com/.well-known/agent-card.json
+      status: 403
+    - url: https://equityzen.com/company/aerospacekate/
+      status: 200
+  checked: '2026-09-12'

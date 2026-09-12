@@ -1,0 +1,83 @@
+generated: '2026-09-12'
+method: probed
+source: >-
+  Direct HTTP probes of every host this record knows — the corporate website host
+  www.htktjd.com (HTTP only; the origin does not answer on 443), the apex htktjd.com,
+  and the mail/alias domain www.htktjd.cn that fronts the same site.
+note: >-
+  NO WELL-KNOWN DOCUMENT IS SERVED. Every path missed on the primary host: the CMS returns a
+  404 error page for /.well-known/security.txt and blanket 403s for every extension-bearing
+  path. www.htktjd.cn answers 200 on all eight paths, but that is a redirect catch-all —
+  the body returned is the www.htktjd.com marketing homepage (Chinese <!DOCTYPE html> shell
+  with the 300.cn CMS build comment), not a well-known document, so it is recorded here as a
+  miss. No WellKnown or SecurityTxt pointer is wired into apis.yml, because nothing was found.
+hosts:
+- host: www.htktjd.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+    note: CMS 404 error page ("Sorry, the request URL was not found").
+  - path: /.well-known/openid-configuration
+    status: 403
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 403
+    file: null
+  - path: /.well-known/api-catalog
+    status: 403
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 403
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 403
+    file: null
+  - path: /.well-known/agent.json
+    status: 403
+    file: null
+- host: htktjd.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 0
+    file: null
+    note: >-
+      Apex resolves to 123.59.154.172 but the origin never completes a connection —
+      curl times out. Only the www label is served.
+- host: www.htktjd.cn
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: null
+    note: HTML homepage of www.htktjd.com returned via 301 catch-all — not a document.
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: null
+    note: HTML homepage returned via 301 catch-all — not a document.
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: null
+    note: HTML homepage returned via 301 catch-all — not a document.
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: null
+    note: HTML homepage returned via 301 catch-all — not a document.
+  - path: /.well-known/api-catalog
+    status: 200
+    file: null
+    note: HTML homepage returned via 301 catch-all — not a document.
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    file: null
+    note: HTML homepage returned via 301 catch-all — not a document.
+  - path: /.well-known/agent-card.json
+    status: 200
+    file: null
+    note: HTML homepage returned via 301 catch-all — not a document.
+  - path: /.well-known/agent.json
+    status: 200
+    file: null
+    note: HTML homepage returned via 301 catch-all — not a document.

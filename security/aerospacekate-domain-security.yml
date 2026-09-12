@@ -1,0 +1,20 @@
+generated: '2026-09-12'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+note: >-
+  The corporate site is served over plain HTTP. Port 443 does accept a connection, but the
+  certificate presented is a CDN default that does not cover www.htktjd.com (hostname mismatch),
+  so there is no usable HTTPS on the only host this company publishes. No HSTS, no DNSSEC, no
+  CAA and no DMARC record exist for htktjd.com; an SPF record is present. Probed 2026-09-12.
+hosts:
+- host: www.htktjd.com
+  https: true
+  tls_cert_error: '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch,
+    certificate is not valid for ''www.htktjd.'
+  hsts: null
+domains:
+- domain: htktjd.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: false
